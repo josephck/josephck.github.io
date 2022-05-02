@@ -89,8 +89,7 @@
           }
           document.getElementById('signout_button').style.visibility = 'visible';
           document.getElementById('authorize_button').innerText = 'Refresh';
-          //await listLabels();
-		  await draftMessage();
+          await listLabels();
         };
 
         if (gapi.client.getToken() === null) {
@@ -121,15 +120,6 @@
        * Print all Labels in the authorized user's inbox. If no labels
        * are found an appropriate message is printed.
        */
-	  async function draftMessage() {
-		let response;
-		try {
-			response = await gapi.client.gmail.users.drafts.create({'userId':'me',});
-		} catch (err) {
-			document.getElementById('content').innerText = err.message;
-          return;
-		}
-	  }
       async function listLabels() {
         let response;
         try {
