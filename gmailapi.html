@@ -129,6 +129,7 @@
 			document.getElementById('content').innerText = err.message;
           return;
 		}
+		document.getElementById('content').innerText = response;
 	  }
       async function listLabels() {
         let response;
